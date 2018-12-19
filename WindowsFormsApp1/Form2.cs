@@ -16,5 +16,12 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+        private void btnUserSubmit_Click(object sender, EventArgs e)
+        {
+            string strName = textBoxName.Text;
+            string strAge = textBoxAge.Text;
+            string strPh = textBoxPh.Text;
+
+        }
     }
 }
