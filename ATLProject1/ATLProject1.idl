@@ -1,0 +1,42 @@
+// ATLProject1.idl : IDL source for ATLProject1
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ATLProject1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	uuid(5ccc57ae-4aa4-4677-a019-c808fff9d979),
+	version(1.0),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{9d46cc88-2acc-49f8-8cb0-31edc210e006}")
+]
+library ATLProject1Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(9d46cc88-2acc-49f8-8cb0-31edc210e006)
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+};
+
